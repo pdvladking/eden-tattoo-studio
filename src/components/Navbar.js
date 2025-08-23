@@ -7,8 +7,10 @@ import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
+  // Lock scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -16,25 +18,44 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  // Close mobile menu on route change
   useEffect(() => {
     const handleRouteChange = () => setIsOpen(false);
     router.events?.on("routeChangeStart", handleRouteChange);
-    return () => router.events?.off("routeChangeStart", handleRouteChange);
+    return () => {
+      router.events?.off("routeChangeStart", handleRouteChange);
+    };
+  }, [router.events]); // ✅ ESLint-compliant
+
+  // Add scroll shadow
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Artists", href: "/artists" },
     { name: "Studio", href: "/studio" },
+    { name: "Artists", href: "/artists" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Aftercare", href: "/aftercare" },
+    { name: "Bookings", href: "/Bookings" },
   ];
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-ink backdrop-blur-md border-b border-veil">
+    <header
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "shadow-md bg-ink/90 backdrop-blur-md border-b border-veil"
+          : "bg-ink"
+      }`}
+    >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="block">
-          <div className="relative w-[60px] h-[60px]">
+          <div className="relative w-[60px] h-[60px] hover:scale-105 transition-transform duration-200">
             <div className="absolute inset-0 rounded-full bg-rose-600 opacity-30 blur-xl animate-pulse z-0" />
             <Image
               src="/assets/logos/eden-logo.svg"
@@ -100,8 +121,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-obsidian backdrop-blur-md transition-opacity duration-300 ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-40 bg-obsidian backdrop-blur-md transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-medium">
