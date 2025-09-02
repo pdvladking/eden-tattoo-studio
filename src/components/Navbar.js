@@ -1,3 +1,5 @@
+// Navbar.js
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -10,7 +12,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
-  // Lock scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -18,16 +19,14 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Close mobile menu on route change
   useEffect(() => {
     const handleRouteChange = () => setIsOpen(false);
     router.events?.on("routeChangeStart", handleRouteChange);
     return () => {
       router.events?.off("routeChangeStart", handleRouteChange);
     };
-  }, [router.events]); // ✅ ESLint-compliant
+  }, [router.events]);
 
-  // Add scroll shadow
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -53,10 +52,9 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="block">
           <div className="relative w-[60px] h-[60px] hover:scale-105 transition-transform duration-200">
-            <div className="absolute inset-0 rounded-full bg-rose-600 opacity-30 blur-xl animate-pulse z-0" />
+            <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl animate-pulse z-0" />
             <Image
               src="/assets/logos/eden-logo.svg"
               alt="Eden Tattoo Studio logo"
@@ -68,14 +66,13 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-bone">
+        <div className="hidden md:flex items-center space-x-8 text-sm font-playfair text-bone">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`transition hover:text-rose-400 ${
-                router.pathname === link.href ? "text-rose-400" : ""
+              className={`transition hover:text-yellow-500 ${
+                router.pathname === link.href ? "text-yellow-400" : ""
               }`}
             >
               {link.name}
@@ -83,16 +80,14 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className="h-[45px] px-5 bg-bone text-ink border border-ink/20 hover:bg-rose-600 hover:text-bone hover:shadow-md hover:shadow-rose-600/30 hover:ring-1 hover:ring-rose-600/40 rounded-full text-sm font-semibold transition duration-200">
+            <button className="font-playfair h-[45px] px-5 bg-bone text-ink border border-ink/20 hover:bg-yellow-500 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 rounded-full text-sm font-semibold transition duration-200">
               Contact
             </button>
           </Link>
         </div>
 
-        {/* Mobile Burger */}
         <div className="md:hidden">
           {!isOpen && (
             <button
@@ -119,14 +114,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed inset-0 z-40 bg-obsidian backdrop-blur-md transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-medium">
-          {/* Close */}
+        <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-playfair">
           <div className="flex justify-end mb-8">
             <button
               aria-label="Close menu"
@@ -150,24 +143,22 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Links */}
           <nav className="space-y-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-lg tracking-tight hover:text-rose-400 transition"
+                className="block text-lg tracking-tight font-playfair hover:text-yellow-400 transition"
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="pt-8">
             <Link href="/contact" onClick={() => setIsOpen(false)}>
-              <button className="w-full h-[45px] px-5 bg-bone text-ink border border-ink/20 hover:bg-rose-600 hover:text-bone hover:shadow-md hover:shadow-rose-600/30 hover:ring-1 hover:ring-rose-600/40 rounded-full text-sm font-semibold transition duration-200">
+              <button className="font-playfair w-full h-[45px] px-5 bg-bone text-ink border border-ink/20 hover:bg-yellow-500 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 rounded-full text-sm font-semibold transition duration-200">
                 Contact
               </button>
             </Link>
