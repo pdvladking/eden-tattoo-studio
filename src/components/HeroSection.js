@@ -21,8 +21,8 @@ export default function HeroSection() {
         </div>
         <div className="relative z-10 text-center px-6 max-w-3xl">
           <h1 className="text-5xl md:text-6xl font-waterbrush tracking-tight leading-tight mb-6">
-            Crafting Stories in Every.
-            <span className="text-yellow-500"> Line.</span>
+            Ink your story.
+            <span className="text-yellow-500">Boldly.</span>
           </h1>
           <p className="text-lg md:text-xl text-bone/80 mb-8">
             Step inside, explore our work, and let’s create something <br />
