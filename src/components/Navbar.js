@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
   const isActive = (href) => router.pathname.startsWith(href);
@@ -27,14 +26,6 @@ export default function Navbar() {
     };
   }, [router.events]);
 
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const navLinks = [
     { name: "Studio", href: "/studio" },
     { name: "Artists", href: "/artists" },
@@ -44,13 +35,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "shadow-md bg-ink/90 border-b border-yellow-500/20"
-          : "bg-ink"
-      }`}
-    >
+    <header className="w-full fixed top-0 left-0 z-50 bg-black text-bone shadow-md border-b border-yellow-500/20 transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="block">
           <div className="relative w-[60px] h-[60px] hover:scale-105 transition-transform duration-200">
@@ -66,7 +51,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <div className="hidden md:flex items-center space-x-8 text-sm font-playfair text-bone">
+        <div className="hidden md:flex items-center space-x-8 text-sm font-playfair">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -114,9 +99,9 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay — Solid Background */}
+      {/* Fullscreen Menu Overlay — Solid Background */}
       <div
-        className={`fixed inset-0 z-[999] bg-black/80 transition-all duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[999] bg-black transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 scale-100 translate-x-0"
             : "opacity-0 scale-95 translate-x-full pointer-events-none"
