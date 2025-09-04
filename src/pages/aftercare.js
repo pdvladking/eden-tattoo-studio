@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
 export default function AftercarePage() {
@@ -116,12 +117,12 @@ export default function AftercarePage() {
           <h2 className="text-2xl font-bold mb-4 text-yellow-500">
             Questions or concerns?
           </h2>
-          <a
+          <Link
             href="/contact"
             className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
           >
             Contact the Studio
-          </a>
+          </Link>
         </section>
       </main>
     </>

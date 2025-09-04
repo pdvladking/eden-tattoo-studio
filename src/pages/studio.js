@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 export default function StudioPage() {
   return (
@@ -127,12 +128,12 @@ export default function StudioPage() {
           <h2 className="text-2xl font-bold mb-4">
             Ready to book your session?
           </h2>
-          <a
+          <Link
             href="/bookings"
             className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
           >
             Book Now
-          </a>
+          </Link>
         </section>
       </main>
     </>

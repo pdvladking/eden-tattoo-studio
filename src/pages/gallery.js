@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 export default function GalleryPage() {
   const images = [
@@ -56,12 +57,12 @@ export default function GalleryPage() {
         {/* CTA */}
         <section className="py-10 px-6 text-center bg-ink text-bone">
           <h2 className="text-2xl font-bold mb-4">Inspired by what you see?</h2>
-          <a
+          <Link
             href="/bookings"
             className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
           >
             Book Your Session
-          </a>
+          </Link>
         </section>
       </main>
     </>

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 export default function ArtistPage() {
   return (
@@ -78,12 +79,12 @@ export default function ArtistPage() {
           <h2 className="text-2xl font-bold mb-4">
             Want to work with a specific artist?
           </h2>
-          <a
+          <Link
             href="/bookings"
             className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
           >
             Book Your Session
-          </a>
+          </Link>
         </section>
       </main>
     </>
