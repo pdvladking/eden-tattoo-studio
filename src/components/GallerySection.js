@@ -37,11 +37,7 @@ export default function GallerySection() {
                 priority={i === 0}
                 loading={i === 0 ? "eager" : "lazy"}
               />
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-yellow-500 text-xs font-medium">
-                  Preview
-                </span>
-              </div>
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"></div>
             </div>
           ))}
         </div>
