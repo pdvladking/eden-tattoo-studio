@@ -21,7 +21,7 @@ export default function ContactPage() {
             Contact the Studio
           </h1>
           <p className="text-lg text-bone/80 max-w-2xl mx-auto">
-            Whether you're curious about styles, pricing, or healing
+            Whether you&apos;re curious about styles, pricing, or healing
             rituals—drop us a message. We respond with care, not templates.
           </p>
         </section>
