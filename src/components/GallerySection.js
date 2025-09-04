@@ -1,37 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
 
 export default function GallerySection() {
-  const scrollRef = useRef(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-
-  const checkScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setAtStart(el.scrollLeft === 0);
-    setAtEnd(el.scrollLeft + el.offsetWidth >= el.scrollWidth - 1);
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", checkScroll);
-    checkScroll();
-    return () => el.removeEventListener("scroll", checkScroll);
-  }, []);
-
-  const scroll = (dir) => {
-    if (!scrollRef.current) return;
-    const scrollAmount = 320;
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
-
   const images = [
     "/assets/tattoos/gallery-preview-1.jpg",
     "/assets/tattoos/gallery-preview-2.jpg",
@@ -41,63 +12,50 @@ export default function GallerySection() {
   ];
 
   return (
-    <section id="gallery" className="py-24 px-6 bg-bone text-ink">
-      <h2 className="text-3xl font-bold text-center mb-8">Studio Reels</h2>
+    <section id="gallery" className="py-14 px-6 bg-black text-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="text-4xl font-bold tracking-tight">
+            <span className="text-yellow-500">Studio</span> Reels
+          </h2>
+          <p className="mt-2 text-sm text-white/60">
+            Curated works from the studio
+          </p>
+        </div>
 
-      {/* Carousel */}
-      <div className="relative max-w-6xl mx-auto">
-        {/* Arrows */}
-        <button
-          onClick={() => scroll("left")}
-          disabled={atStart}
-          className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-ink text-bone px-3 py-2 rounded-full transition ${
-            atStart ? "opacity-30 cursor-default" : "hover:bg-yellow-500"
-          }`}
-        >
-          ◀
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          disabled={atEnd}
-          className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-ink text-bone px-3 py-2 rounded-full transition ${
-            atEnd ? "opacity-30 cursor-default" : "hover:bg-yellow-500"
-          }`}
-        >
-          ▶
-        </button>
-
-        {/* Scrollable Gallery */}
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto space-x-6 snap-x px-1 py-4 md:px-12 md:scroll-smooth scrollbar-hide"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-        >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.map((src, i) => (
-            <Image
+            <div
               key={i}
-              src={src}
-              alt={`Tattoo ${i + 1}`}
-              width={300}
-              height={300}
-              className="rounded-lg shadow-md snap-center shrink-0 hover:scale-105 transition duration-300 ease-in-out"
-            />
+              className="relative aspect-square overflow-hidden rounded-lg group shadow-md"
+            >
+              <Image
+                src={src}
+                alt={`Tattoo artwork ${i + 1}`}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="text-yellow-500 text-xs font-medium">
+                  Preview
+                </span>
+              </div>
+            </div>
           ))}
         </div>
-      </div>
 
-      {/* View Full Gallery Button */}
-      <div className="text-center mt-12">
-        <Link href="/gallery">
-          <button className="px-6 py-3 bg-ink text-bone rounded-full font-semibold hover:bg-yellow-500 border hover:text-ink transition duration-200">
-            View Full Gallery
-          </button>
-        </Link>
+        <div className="mt-16 text-center">
+          <Link href="/gallery" passHref legacyBehavior>
+            <a className="inline-block px-6 py-3 bg-yellow-500 text-black rounded-full font-semibold hover:bg-yellow-600 transition duration-300 shadow hover:shadow-yellow-500/40">
+              Browse Full Gallery →
+            </a>
+          </Link>
+        </div>
+
+        <div className="w-full h-[1px] bg-gradient-to-r from-yellow-500/20 via-white/10 to-yellow-500/20 mt-2" />
       </div>
-      {/* Gradient Accent Divider */}
-      <div className="w-full h-[2px] bg-gradient-to-r from-yellow-500/30 via-bone/20 to-yellow-500/30 mt-12" />
     </section>
   );
 }

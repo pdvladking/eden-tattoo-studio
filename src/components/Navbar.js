@@ -1,5 +1,3 @@
-// Navbar.js
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -11,6 +9,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+
+  const isActive = (href) => router.pathname.startsWith(href);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -47,14 +47,14 @@ export default function Navbar() {
     <header
       className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "shadow-md bg-ink/90 backdrop-blur-md border-b border-veil"
+          ? "shadow-md bg-ink/90 backdrop-blur-md border-b border-yellow-500/20"
           : "bg-ink"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="block">
           <div className="relative w-[60px] h-[60px] hover:scale-105 transition-transform duration-200">
-            <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl animate-pulse z-0" />
+            <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl animate-pulse z-0 hover:ring-2 hover:ring-yellow-500/40 transition" />
             <Image
               src="/assets/logos/eden-logo.svg"
               alt="Eden Tattoo Studio logo"
@@ -72,7 +72,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               className={`transition hover:text-yellow-500 ${
-                router.pathname === link.href ? "text-yellow-400" : ""
+                isActive(link.href) ? "text-yellow-400" : ""
               }`}
             >
               {link.name}
@@ -82,7 +82,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className="font-playfair h-[45px] px-5 bg-bone text-ink border border-ink/20 hover:bg-yellow-500 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 rounded-full text-sm font-semibold transition duration-200">
+            <button className="font-playfair h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 hover:bg-yellow-600 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 focus-visible:ring-2 focus-visible:ring-yellow-500 rounded-full text-sm font-semibold transition duration-200">
               Contact
             </button>
           </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
           {!isOpen && (
             <button
               aria-label="Open menu"
-              className="text-bone focus:outline-none"
+              className="text-bone focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500"
               onClick={() => setIsOpen(true)}
             >
               <svg
@@ -115,8 +115,10 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-40 bg-obsidian backdrop-blur-md transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-40 bg-obsidian backdrop-blur-md transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "opacity-100 scale-100 translate-x-0"
+            : "opacity-0 scale-95 translate-x-full"
         }`}
       >
         <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-playfair">
@@ -124,7 +126,7 @@ export default function Navbar() {
             <button
               aria-label="Close menu"
               onClick={() => setIsOpen(false)}
-              className="text-bone"
+              className="text-bone focus-visible:ring-2 focus-visible:ring-yellow-500"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +151,9 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-lg tracking-tight font-playfair hover:text-yellow-400 transition"
+                className={`block text-lg tracking-tight font-playfair hover:text-yellow-400 transition ${
+                  isActive(link.href) ? "text-yellow-400" : ""
+                }`}
               >
                 {link.name}
               </Link>
@@ -158,7 +162,7 @@ export default function Navbar() {
 
           <div className="pt-8">
             <Link href="/contact" onClick={() => setIsOpen(false)}>
-              <button className="font-playfair w-full h-[45px] px-5 bg-bone text-ink border border-ink/20 hover:bg-yellow-500 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 rounded-full text-sm font-semibold transition duration-200">
+              <button className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 hover:bg-yellow-600 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 focus-visible:ring-2 focus-visible:ring-yellow-500 rounded-full text-sm font-semibold transition duration-200">
                 Contact
               </button>
             </Link>

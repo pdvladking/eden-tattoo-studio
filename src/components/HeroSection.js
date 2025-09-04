@@ -22,14 +22,14 @@ export default function HeroSection() {
         <div className="relative z-10 text-center px-6 max-w-3xl">
           <h1 className="text-5xl md:text-6xl font-waterbrush tracking-tight leading-tight mb-6">
             Ink your story.
-            <span className="text-yellow-500">Boldly.</span>
+            <span className="text-yellow-500 animate-pulse">Boldly.</span>
           </h1>
           <p className="text-lg md:text-xl text-bone/80 mb-8">
             Step inside, explore our work, and let’s create something <br />
             unforgettable together.
           </p>
           <Link href="/bookings">
-            <button className="px-6 py-3 border text-bone rounded-full font-semibold hover:bg-yellow-400 hover:shadow-lg transition duration-200">
+            <button className="px-6 py-3 bg-yellow-500 border text-black rounded-full font-semibold hover:bg-yellow-600 hover:shadow-lg transition duration-200">
               Book Your Session
             </button>
           </Link>
@@ -37,7 +37,7 @@ export default function HeroSection() {
       </section>
 
       {/* Gradient Accent Divider */}
-      <div className="w-full h-[2px] bg-gradient-to-r from-yellow-500/30 via-bone/20 to-yellow-500/30 my-12" />
+      <div className="w-full h-[1px] bg-gradient-to-r from-yellow-500/20 via-white/10 to-yellow-500/20 mt-2" />
     </>
   );
 }

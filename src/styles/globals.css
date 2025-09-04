@@ -14,7 +14,6 @@ body {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
-/* Optional utility class for headers */
 .font-waterbrush {
   font-family: var(--font-waterbrush), cursive;
 }

@@ -53,9 +53,11 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-24 px-6 bg-ink text-bone text-center"
+      className="py-10 px-6 bg-ink text-bone text-center"
     >
-      <h2 className="text-3xl font-bold mb-8">Client Echoes</h2>
+      <h2 className="text-3xl font-bold mb-8">
+        <span className="text-yellow-500">Client</span> Echoes
+      </h2>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {paginated.map((t, i) => (
@@ -76,7 +78,7 @@ export default function TestimonialsSection() {
         <button
           onClick={() => setPage((p) => Math.max(p - 1, 0))}
           disabled={page === 0}
-          className="px-4 py-2 text-sm bg-yellow-500 text-ink rounded hover:bg-yellow-400 disabled:opacity-30"
+          className="px-4 py-2 text-sm bg-yellow-500 text-black rounded hover:bg-yellow-400 disabled:opacity-30"
         >
           ← Prev
         </button>
@@ -86,14 +88,14 @@ export default function TestimonialsSection() {
         <button
           onClick={() => setPage((p) => Math.min(p + 1, totalPages - 1))}
           disabled={page === totalPages - 1}
-          className="px-4 py-2 text-sm bg-yellow-500 text-ink rounded hover:bg-yellow-400 disabled:opacity-30"
+          className="px-4 py-2 text-sm bg-yellow-500 text-black rounded hover:bg-yellow-400 disabled:opacity-30"
         >
           Next →
         </button>
       </div>
 
       {/* Gradient Accent Divider */}
-      <div className="w-full h-[2px] bg-gradient-to-r from-yellow-500/30 via-bone/20 to-yellow-500/30 my-12" />
+      <div className="w-full h-[1px] bg-gradient-to-r from-yellow-500/20 via-white/10 to-yellow-500/20 mt-2" />
     </section>
   );
 }
