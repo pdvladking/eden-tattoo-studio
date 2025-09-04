@@ -31,7 +31,7 @@ export default function Navbar() {
     { name: "Artists", href: "/artists" },
     { name: "Gallery", href: "/gallery" },
     { name: "Aftercare", href: "/aftercare" },
-    { name: "Bookings", href: "/Bookings" },
+    { name: "Bookings", href: "/bookings" },
   ];
 
   return (
