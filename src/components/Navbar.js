@@ -47,7 +47,7 @@ export default function Navbar() {
     <header
       className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "shadow-md bg-ink/90 backdrop-blur-md border-b border-yellow-500/20"
+          ? "shadow-md bg-ink/90 border-b border-yellow-500/20"
           : "bg-ink"
       }`}
     >
@@ -114,11 +114,12 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/* Mobile Menu Overlay — Solid Background */}
       <div
-        className={`fixed inset-0 z-40 bg-obsidian backdrop-blur-md transition-all duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[999] bg-black/80 transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 scale-100 translate-x-0"
-            : "opacity-0 scale-95 translate-x-full"
+            : "opacity-0 scale-95 translate-x-full pointer-events-none"
         }`}
       >
         <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-playfair">
