@@ -22,18 +22,21 @@ export default function BookingPage() {
 
     emailjs
       .send(
-        "service_dyshniy6", // ✅ Your EmailJS service ID
-        "template_28yr2ql", // ✅ Your EmailJS template ID
+        "service_dysnhy6", // ✅ Corrected service ID
+        "template_28yr2ql", // ✅ Verified template ID
         {
           name: form.name,
           email: form.email,
-          time: form.date, // ✅ Matches {{time}} in your template
+          time: form.date, // ✅ Matches {{time}} in template
           message: form.message,
         },
-        "DDC-tGUE-LJqFcuLL" // ✅ Your actual public key
+        "DDC-tGUE-LJqFcuLL" // ✅ Verified public key
       )
       .then(() => setStatus("Booking sent!"))
-      .catch(() => setStatus("Failed to send. Try again."));
+      .catch((err) => {
+        console.error("EmailJS error:", err); // 🔍 Log actual error
+        setStatus("Failed to send. Try again.");
+      });
   };
 
   return (
