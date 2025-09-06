@@ -79,7 +79,7 @@ export default function FooterSection() {
             <FaInstagram />
           </Link>
           <Link
-            href="https://www.tiktok.com"
+            href="https://www.tiktok.com/@edentattoonepal"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="TikTok"
