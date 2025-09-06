@@ -21,7 +21,17 @@ export default function BookingPage() {
     e.preventDefault();
 
     emailjs
-      .send("service_dyshniy6", "template_xxxxxx", form, "your_public_key")
+      .send(
+        "service_dyshniy6", // ✅ Your EmailJS service ID
+        "template_28yr2ql", // ✅ Your EmailJS template ID
+        {
+          name: form.name,
+          email: form.email,
+          date: form.date,
+          message: form.message,
+        },
+        "DDC-tGUE-LJqFcuLL" // ✅ Your actual public key
+      )
       .then(() => setStatus("Booking sent!"))
       .catch(() => setStatus("Failed to send. Try again."));
   };
