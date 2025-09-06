@@ -6,37 +6,37 @@ export default function TestimonialsSection() {
       quote:
         "Wonderful experience with Eden Tattoo. Their service was exceptional—friendly staff, very clean studio, and amazing skills. I love my tattoo, which was designed from a photo I took the morning I reached Thorong La Pass.",
       name: "Brett Allan",
-      type: "Custom Landscape Piece",
+      type: "Custom Landscape Piece · Tattoo Nepal",
     },
     {
       quote:
         "Travelled all the way from London to get Tattooed here! The artists are super friendly, they make sure you’re comfortable by not only making sure you’re happy with your tattoo but also get you tea/coffee. The studio itself is super clean and they stick to the highest standards with all equipment!.",
       name: "Nafisa Tamrakar.",
-      type: "Dragon tattoo",
+      type: "Dragon Tattoo · Kathmandu Studio",
     },
     {
       quote:
         "After 10 years of debating, I had the pleasure of getting my first tattoo at Eden Tattoo in Thamel. The staff there were extremely helpful - they kept the atmosphere light and fun to ease my anxiety. My tattoo artist collaborated with me on the design and offered professional tips to get the final design - which I absolutely adore! The facility is also extremely clean and sanitary.",
       name: "Neha.",
-      type: "Bird Tattoo",
+      type: "Bird Tattoo · Thamel Tattoo Studio",
     },
     {
       quote:
         "Best tattoo studio in Thamel do visit Highly recommend. Neat and clean. Professional artist. Artist listened my idea and he create beautiful design.",
       name: "Suraj Rawal.",
-      type: "Custom foot design",
+      type: "Custom Foot Design · Tattoo Nepal",
     },
     {
       quote:
         "5 stars! The owner is very kind, and the girl who did the piercings is super cool. I can 100% recommend Eden Tattoo for tattoos and piercings. I got a big piece and three piercings 💖",
       name: "Louisa Reimann",
-      type: "Tattoo + Piercing Combo",
+      type: "Tattoo + Piercing Combo · Hygienic Studio Nepal",
     },
     {
       quote:
         "I did a cover-up and the results were absolutely amazing—fully satisfied! I also got a tiger tattoo on my leg, and it turned out incredible. Highly recommend Eden Tattoo. Super professional, hygienic studio, and chill environment. Do visit Eden Tattoo Nepal!",
       name: "Nirajan Shrestha",
-      type: "Cover-up + Tiger Tattoo",
+      type: "Cover-up + Tiger Tattoo · Tattoo Nepal",
     },
     // Add more testimonials here as needed
   ];

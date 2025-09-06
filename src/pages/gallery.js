@@ -37,7 +37,32 @@ export default function GalleryPage() {
           name="description"
           content="Explore our tattoo gallery—bold ink, fine-line elegance, and stories etched in skin. Eden Tattoo Nepal showcases precision and passion."
         />
+        <meta
+          name="keywords"
+          content="Tattoo Gallery Nepal, Blackwork Tattoos, Fine-line Ink, Eden Tattoo Kathmandu"
+        />
+        <meta name="author" content="Eden Tattoo Nepal" />
+        <meta name="geo.region" content="NP-BA" />
+        <meta name="geo.placename" content="Thamel, Kathmandu" />
+        <meta name="geo.position" content="27.73384;85.38173" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Gallery | Eden Tattoo Nepal" />
+        <meta
+          property="og:description"
+          content="Browse Eden Tattoo Nepal's gallery of bold blackwork and delicate line art. Every piece tells a story."
+        />
+        <meta property="og:image" content="/assets/gallery/ink-1.webp" />
+        <meta
+          property="og:url"
+          content="https://www.edentattoonepal.com/gallery"
+        />
+        <meta property="og:type" content="article" />
+
+        {/* Canonical */}
+        <link rel="canonical" href="https://www.edentattoonepal.com/gallery" />
       </Head>
+
       <Navbar />
 
       <main>

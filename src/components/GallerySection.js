@@ -32,7 +32,7 @@ export default function GallerySection() {
             >
               <Image
                 src={src}
-                alt={`Tattoo artwork ${i + 1}`}
+                alt={`Tattoo preview artwork ${i + 1} | Eden Tattoo Nepal`}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg"
                 priority={i === 0}

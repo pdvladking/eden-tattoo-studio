@@ -65,7 +65,35 @@ export default function BookingPage() {
           name="description"
           content="Ready to ink your story? Book a session with Eden Tattoo Nepal—where precision meets ritual."
         />
+        <meta
+          name="keywords"
+          content="Tattoo Booking Nepal, Piercing Appointment Kathmandu, Eden Tattoo Studio Thamel"
+        />
+        <meta name="author" content="Eden Tattoo Nepal" />
+        <meta name="geo.region" content="NP-BA" />
+        <meta name="geo.placename" content="Thamel, Kathmandu" />
+        <meta name="geo.position" content="27.73384;85.38173" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Book a Session | Eden Tattoo Nepal"
+        />
+        <meta
+          property="og:description"
+          content="Secure your tattoo or piercing appointment at Eden Tattoo Nepal. Hygienic studio, professional artists, unforgettable ink."
+        />
+        <meta property="og:image" content="/assets/logos/eden-logo.svg" />
+        <meta
+          property="og:url"
+          content="https://www.edentattoonepal.com/bookings"
+        />
+        <meta property="og:type" content="article" />
+
+        {/* Canonical */}
+        <link rel="canonical" href="https://www.edentattoonepal.com/bookings" />
       </Head>
+
       <Navbar />
 
       <main>

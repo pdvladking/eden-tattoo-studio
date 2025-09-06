@@ -11,7 +11,35 @@ export default function AftercarePage() {
           name="description"
           content="Tattoo aftercare rituals from Eden Tattoo Nepal—protect your ink, heal with precision, and honor the art."
         />
+        <meta
+          name="keywords"
+          content="Tattoo Aftercare Nepal, Healing Ink Kathmandu, Eden Tattoo Studio Thamel"
+        />
+        <meta name="author" content="Eden Tattoo Nepal" />
+        <meta name="geo.region" content="NP-BA" />
+        <meta name="geo.placename" content="Thamel, Kathmandu" />
+        <meta name="geo.position" content="27.73384;85.38173" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Aftercare | Eden Tattoo Nepal" />
+        <meta
+          property="og:description"
+          content="Follow Eden Tattoo Nepal's aftercare rituals to protect your ink and heal with precision. Honor the art, respect the process."
+        />
+        <meta property="og:image" content="/assets/logos/eden-logo.svg" />
+        <meta
+          property="og:url"
+          content="https://www.edentattoonepal.com/aftercare"
+        />
+        <meta property="og:type" content="article" />
+
+        {/* Canonical */}
+        <link
+          rel="canonical"
+          href="https://www.edentattoonepal.com/aftercare"
+        />
       </Head>
+
       <Navbar />
 
       <main>

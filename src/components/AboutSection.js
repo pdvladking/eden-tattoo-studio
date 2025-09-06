@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 export default function AboutSection() {
@@ -7,7 +8,7 @@ export default function AboutSection() {
       <section id="about" className="py-14 px-6 text-center bg-ink text-bone">
         <Image
           src="/assets/tattoos/lead-artist.webp"
-          alt="Lead artist at Eden Tattoo"
+          alt="Lead tattoo artist in Kathmandu | Eden Tattoo Nepal"
           width={160}
           height={160}
           className="mx-auto mb-6 rounded-full shadow-lg object-cover"

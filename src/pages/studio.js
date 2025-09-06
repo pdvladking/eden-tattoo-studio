@@ -12,7 +12,35 @@ export default function StudioPage() {
           name="description"
           content="Explore Eden Tattoo Nepal's hygiene standards, safety protocols, and studio environment. Your safety is our priority."
         />
+        <meta
+          name="keywords"
+          content="Tattoo Hygiene Nepal, Piercing Safety Kathmandu, Hygienic Tattoo Studio, Eden Tattoo Thamel"
+        />
+        <meta name="author" content="Eden Tattoo Nepal" />
+        <meta name="geo.region" content="NP-BA" />
+        <meta name="geo.placename" content="Thamel, Kathmandu" />
+        <meta name="geo.position" content="27.73384;85.38173" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Studio Hygiene | Eden Tattoo Nepal"
+        />
+        <meta
+          property="og:description"
+          content="Discover Eden Tattoo Nepal's strict hygiene protocols and safe studio environment in Thamel, Kathmandu."
+        />
+        <meta property="og:image" content="/assets/logos/eden-logo.svg" />
+        <meta
+          property="og:url"
+          content="https://www.edentattoonepal.com/studio"
+        />
+        <meta property="og:type" content="article" />
+
+        {/* Canonical */}
+        <link rel="canonical" href="https://www.edentattoonepal.com/studio" />
       </Head>
+
       <Navbar />
 
       <main>

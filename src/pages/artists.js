@@ -12,7 +12,35 @@ export default function ArtistPage() {
           name="description"
           content="Get to know the artists behind Eden Tattoo Nepal. Explore their styles, stories, and the passion they bring to every piece."
         />
+        <meta
+          name="keywords"
+          content="Tattoo Artists Nepal, Fine-line Tattoo Kathmandu, Eden Tattoo Studio Thamel"
+        />
+        <meta name="author" content="Eden Tattoo Nepal" />
+        <meta name="geo.region" content="NP-BA" />
+        <meta name="geo.placename" content="Thamel, Kathmandu" />
+        <meta name="geo.position" content="27.73384;85.38173" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Meet Our Artists | Eden Tattoo Nepal"
+        />
+        <meta
+          property="og:description"
+          content="Discover the artists behind Eden Tattoo Nepal. Explore their styles, stories, and the passion they bring to every piece."
+        />
+        <meta property="og:image" content="/assets/artists/sagar.webp" />
+        <meta
+          property="og:url"
+          content="https://www.edentattoonepal.com/artists"
+        />
+        <meta property="og:type" content="article" />
+
+        {/* Canonical */}
+        <link rel="canonical" href="https://www.edentattoonepal.com/artists" />
       </Head>
+
       <Navbar />
 
       <main>
