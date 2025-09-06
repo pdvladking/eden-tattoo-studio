@@ -1,8 +1,35 @@
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_dyshniy6", // ✅ Your EmailJS service ID
+        "template_xxxxxx", // ✅ Your EmailJS contact template ID
+        form,
+        "your_public_key" // ✅ Your EmailJS public key
+      )
+      .then(() => setStatus("Message sent!"))
+      .catch(() => setStatus("Failed to send. Try again."));
+  };
+
   return (
     <>
       <Head>
@@ -29,15 +56,18 @@ export default function ContactPage() {
         {/* Contact Form */}
         <section className="py-14 px-6 bg-bone text-ink">
           <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block font-semibold mb-1 text-black">
                   Name
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  onChange={handleChange}
                   className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Your full name"
+                  required
                 />
               </div>
 
@@ -47,8 +77,11 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  onChange={handleChange}
                   className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="you@example.com"
+                  required
                 />
               </div>
 
@@ -57,9 +90,12 @@ export default function ContactPage() {
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  onChange={handleChange}
                   rows={5}
                   className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Ask us anything—style, availability, healing, or custom requests..."
+                  required
                 />
               </div>
 
@@ -69,6 +105,10 @@ export default function ContactPage() {
               >
                 Send Message
               </button>
+
+              {status && (
+                <p className="text-center text-green-600 mt-4">{status}</p>
+              )}
             </form>
           </div>
         </section>
