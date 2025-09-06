@@ -17,3 +17,21 @@ body {
 .font-waterbrush {
   font-family: var(--font-waterbrush), cursive;
 }
+@keyframes pulse-border {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2.5s infinite;
+}

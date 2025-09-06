@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaTiktok, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 
 export default function FooterSection() {
   return (
@@ -28,19 +28,35 @@ export default function FooterSection() {
 
         {/* Navigation Links */}
         <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-          <Link href="#bookings" className="hover:text-yellow-500 transition">
+          <Link href="/bookings" className="hover:text-yellow-500 transition">
             Book
           </Link>
-          <Link href="#gallery" className="hover:text-yellow-500 transition">
+          <Link href="/gallery" className="hover:text-yellow-500 transition">
             Gallery
           </Link>
-          <Link href="#artists" className="hover:text-yellow-500 transition">
+          <Link href="/artists" className="hover:text-yellow-500 transition">
             Artists
           </Link>
-          <Link href="#about" className="hover:text-yellow-500 transition">
+          <Link href="/studio" className="hover:text-yellow-500 transition">
             About
           </Link>
         </nav>
+
+        {/* Contact Info */}
+        <div className="flex flex-col items-center space-y-2 text-sm text-bone/70">
+          <Link
+            href="tel:+9779816245996"
+            className="hover:text-yellow-500 transition"
+          >
+            📞 +977-9816245996
+          </Link>
+          <Link
+            href="mailto:edentattoo73@gmail.com"
+            className="hover:text-yellow-500 transition"
+          >
+            📧 edentattoo73@gmail.com
+          </Link>
+        </div>
 
         {/* Social Icons */}
         <div className="flex gap-6 text-xl text-bone/70">
@@ -48,6 +64,7 @@ export default function FooterSection() {
             href="https://www.facebook.com/profile.php?id=100076221092054"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Facebook"
             className="hover:text-yellow-500 transition"
           >
             <FaFacebookF />
@@ -56,6 +73,7 @@ export default function FooterSection() {
             href="https://www.instagram.com/edentattoonepal/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram"
             className="hover:text-yellow-500 transition"
           >
             <FaInstagram />
@@ -64,15 +82,10 @@ export default function FooterSection() {
             href="https://www.tiktok.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="TikTok"
             className="hover:text-yellow-500 transition"
           >
             <FaTiktok />
-          </Link>
-          <Link
-            href="edentattoo73@gmail.com"
-            className="hover:text-yellow-500 transition"
-          >
-            <FaEnvelope />
           </Link>
         </div>
 
@@ -81,7 +94,7 @@ export default function FooterSection() {
 
         {/* Copyright */}
         <p className="text-xs text-bone/50 tracking-wide">
-          © 2025 Eden Tattoo Studio. All rights reserved.
+          © {new Date().getFullYear()} Eden Tattoo Studio. All rights reserved.
         </p>
       </div>
     </footer>

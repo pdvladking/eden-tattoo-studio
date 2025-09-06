@@ -6,7 +6,6 @@ import AboutSection from "../components/AboutSection";
 import GallerySection from "../components/GallerySection";
 import BookingCTASection from "../components/BookingCTASection";
 import TestimonialsSection from "../components/TestimonialsSection";
-import FooterSection from "../components/FooterSection";
 
 export default function HomePage() {
   return (
@@ -17,7 +16,6 @@ export default function HomePage() {
       <GallerySection />
       <BookingCTASection />
       <TestimonialsSection />
-      <FooterSection />
     </main>
   );
 }

@@ -68,7 +68,7 @@ export default function StudioPage() {
             </div>
             <div>
               <Image
-                src="/assets/tattoos/shop-img2.jpg"
+                src="/assets/tattoos/shop-img1.webp"
                 alt="Inside Eden Tattoo Studio"
                 width={600}
                 height={400}
@@ -112,7 +112,7 @@ export default function StudioPage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bg-ink text-bone p-6 rounded-lg shadow-md transform transition duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl hover:-translate-y-1"
+                className="bg-ink text-bone p-6 rounded-lg shadow-md border-2 border-transparent hover:border-yellow-500 transform transition duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl hover:-translate-y-1"
               >
                 <h3 className="text-xl font-semibold mb-2 text-yellow-500">
                   {item.title}

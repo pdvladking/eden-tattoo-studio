@@ -3,9 +3,10 @@ import Image from "next/image";
 export default function AboutSection() {
   return (
     <>
+      {/* About Section */}
       <section id="about" className="py-14 px-6 text-center bg-ink text-bone">
         <Image
-          src="/assets/tattoos/lead-artist.jpg"
+          src="/assets/tattoos/lead-artist.webp"
           alt="Lead artist at Eden Tattoo"
           width={160}
           height={160}
@@ -24,6 +25,8 @@ export default function AboutSection() {
           with pride.
         </p>
       </section>
+
+      {/* Services Section */}
       <section
         id="services"
         className="py-14 px-6 text-center bg-bone text-ink"
@@ -58,7 +61,7 @@ export default function AboutSection() {
           ].map((service, idx) => (
             <div
               key={idx}
-              className="bg-ink text-bone p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow"
+              className="bg-ink text-bone p-6 rounded-lg shadow-md border-2 border-transparent hover:border-yellow-500 transform transition duration-300 hover:scale-[1.02] hover:shadow-xl"
             >
               <h3 className="text-xl font-semibold mb-2 text-yellow-500">
                 {service.title}

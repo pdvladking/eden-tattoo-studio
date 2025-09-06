@@ -4,11 +4,12 @@ import Link from "next/link";
 
 export default function GallerySection() {
   const images = [
-    "/assets/tattoos/gallery-preview-1.jpg",
-    "/assets/tattoos/gallery-preview-2.jpg",
-    "/assets/tattoos/gallery-preview-3.jpg",
-    "/assets/tattoos/gallery-preview-4.jpg",
-    "/assets/tattoos/gallery-preview-5.jpg",
+    "/assets/tattoos/gallery-preview-1.webp",
+    "/assets/tattoos/gallery-preview-2.webp",
+    "/assets/tattoos/gallery-preview-3.webp",
+    "/assets/tattoos/gallery-preview-4.webp",
+    "/assets/tattoos/gallery-preview-5.webp",
+    "/assets/tattoos/gallery-preview-6.webp",
   ];
 
   return (
@@ -27,17 +28,16 @@ export default function GallerySection() {
           {images.map((src, i) => (
             <div
               key={i}
-              className="relative aspect-square overflow-hidden rounded-lg group shadow-md"
+              className="relative aspect-square overflow-hidden rounded-lg group shadow-md border-2 border-transparent hover:border-yellow-500 transition duration-300"
             >
               <Image
                 src={src}
                 alt={`Tattoo artwork ${i + 1}`}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg"
                 priority={i === 0}
                 loading={i === 0 ? "eager" : "lazy"}
               />
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"></div>
             </div>
           ))}
         </div>
@@ -45,7 +45,7 @@ export default function GallerySection() {
         <div className="mt-16 text-center">
           <Link href="/gallery" passHref legacyBehavior>
             <a className="inline-block px-6 py-3 bg-yellow-500 text-black rounded-full font-semibold hover:bg-yellow-600 transition duration-300 shadow hover:shadow-yellow-500/40">
-              Browse Full Gallery →
+              Browse Full Gallery
             </a>
           </Link>
         </div>

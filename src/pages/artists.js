@@ -33,34 +33,22 @@ export default function ArtistPage() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
               {
-                name: "Sagar Bro",
-                role: "Fine-line Specialist",
-                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                img: "/assets/artists/sagarbro-1.jpg",
-              },
-              {
-                name: "bla bla",
-                role: "Bold Ink & Blackwork",
-                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                img: "/assets/artists/sagarbro-2.jpg",
-              },
-              {
-                name: "bla bla bla",
-                role: "Geometric & Mandala",
-                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                img: "/assets/artists/sagarbro-1.jpg",
+                name: "Sagar Rana Magar",
+                role: "Founder & Lead Artist",
+                bio: "Sagar Rana Magar is the founder of Eden Tattoo Nepal, located in Thamel, Kathmandu. Known for his precision in fine-line work and his ability to blend traditional Nepali motifs with modern design, Sagar has built a reputation for intentional artistry and studio discipline. His approach to tattooing is rooted in ritual, hygiene, and emotional resonance—every piece is engineered to reflect the client’s story, not just inked for aesthetics.",
+                img: "/assets/artists/sagar.webp",
               },
             ].map((artist, idx) => (
               <div
                 key={idx}
-                className="bg-ink text-bone rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+                className="bg-ink text-bone rounded-lg shadow-lg overflow-hidden border-2 border-transparent hover:border-yellow-500 transform transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
               >
                 <Image
                   src={artist.img}
                   alt={artist.name}
                   width={600}
                   height={400}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-64 object-cover rounded-t-lg"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-yellow-500 mb-1">

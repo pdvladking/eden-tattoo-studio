@@ -11,7 +11,7 @@ export default function HeroSection() {
       >
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/tattoos/hero-3.jpg"
+            src="/assets/tattoos/hero-3.webp"
             alt="Tattoo studio background"
             fill
             className="object-cover opacity-40"
