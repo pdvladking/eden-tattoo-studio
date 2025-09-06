@@ -8,10 +8,13 @@ export default function BookingPage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     date: "",
+    time: "",
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,24 +22,39 @@ export default function BookingPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setStatus("");
 
     emailjs
       .send(
-        "service_dysnhy6", // ✅ Corrected service ID
-        "template_28yr2ql", // ✅ Verified template ID
+        "service_dysnhy6",
+        "template_28yr2ql",
         {
           name: form.name,
           email: form.email,
-          time: form.date, // ✅ Matches {{time}} in template
+          phone: form.phone,
+          date: form.date,
+          time: form.time,
           message: form.message,
         },
-        "DDC-tGUE-LJqFcuLL" // ✅ Verified public key
+        "DDC-tGUE-LJqFcuLL"
       )
-      .then(() => setStatus("Booking sent!"))
+      .then(() => {
+        setStatus("Booking sent!");
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          date: "",
+          time: "",
+          message: "",
+        });
+      })
       .catch((err) => {
-        console.error("EmailJS error:", err); // 🔍 Log actual error
+        console.error("EmailJS error:", err);
         setStatus("Failed to send. Try again.");
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -73,8 +91,9 @@ export default function BookingPage() {
                 <input
                   type="text"
                   name="name"
+                  value={form.name}
                   onChange={handleChange}
-                  className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Your full name"
                   required
                 />
@@ -87,8 +106,9 @@ export default function BookingPage() {
                 <input
                   type="email"
                   name="email"
+                  value={form.email}
                   onChange={handleChange}
-                  className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="you@example.com"
                   required
                 />
@@ -96,15 +116,47 @@ export default function BookingPage() {
 
               <div>
                 <label className="block font-semibold mb-1 text-black">
-                  Preferred Date
+                  Phone Number
                 </label>
                 <input
-                  type="date"
-                  name="date"
+                  type="tel"
+                  name="phone"
+                  value={form.phone}
                   onChange={handleChange}
-                  className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  placeholder="e.g. 97XXXXXXXX"
                   required
                 />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block font-semibold mb-1 text-black">
+                    Preferred Date
+                  </label>
+                  <input
+                    type="date"
+                    name="date"
+                    value={form.date}
+                    onChange={handleChange}
+                    className="w-full border border-ink/20 rounded px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-semibold mb-1 text-black">
+                    Preferred Time
+                  </label>
+                  <input
+                    type="time"
+                    name="time"
+                    value={form.time}
+                    onChange={handleChange}
+                    className="w-full border border-ink/20 rounded px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                    required
+                  />
+                </div>
               </div>
 
               <div>
@@ -113,9 +165,10 @@ export default function BookingPage() {
                 </label>
                 <textarea
                   name="message"
+                  value={form.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Tell us about your vision, placement, and style..."
                   required
                 />
@@ -123,13 +176,18 @@ export default function BookingPage() {
 
               <button
                 type="submit"
-                className="w-full bg-yellow-500 text-black font-semibold py-3 rounded hover:bg-yellow-400 transition"
+                disabled={loading}
+                className={`w-full bg-yellow-500 text-black font-semibold py-3 rounded transition ${
+                  loading
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-yellow-400"
+                }`}
               >
-                Submit Booking Request
+                {loading ? "Sending..." : "Submit Booking Request"}
               </button>
 
               {status && (
-                <p className="text-center text-green-600 mt-4">{status}</p>
+                <p className="text-center mt-4 text-green-600">{status}</p>
               )}
             </form>
           </div>

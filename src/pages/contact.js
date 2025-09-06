@@ -11,6 +11,7 @@ export default function ContactPage() {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,16 +19,20 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setStatus("");
 
     emailjs
-      .send(
-        "service_dyshniy6", // ✅ Your EmailJS service ID
-        "template_xxxxxx", // ✅ Your EmailJS contact template ID
-        form,
-        "your_public_key" // ✅ Your EmailJS public key
-      )
-      .then(() => setStatus("Message sent!"))
-      .catch(() => setStatus("Failed to send. Try again."));
+      .send("service_dysnhy6", "template_28yr2ql", form, "DDC-tGUE-LJqFcuLL")
+      .then(() => {
+        setStatus("Message sent!");
+        setForm({ name: "", email: "", message: "" });
+      })
+      .catch((err) => {
+        console.error("EmailJS error:", err);
+        setStatus("Failed to send. Try again.");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -64,8 +69,9 @@ export default function ContactPage() {
                 <input
                   type="text"
                   name="name"
+                  value={form.name}
                   onChange={handleChange}
-                  className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Your full name"
                   required
                 />
@@ -78,8 +84,9 @@ export default function ContactPage() {
                 <input
                   type="email"
                   name="email"
+                  value={form.email}
                   onChange={handleChange}
-                  className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="you@example.com"
                   required
                 />
@@ -91,9 +98,10 @@ export default function ContactPage() {
                 </label>
                 <textarea
                   name="message"
+                  value={form.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full border border-ink/20 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Ask us anything—style, availability, healing, or custom requests..."
                   required
                 />
@@ -101,13 +109,18 @@ export default function ContactPage() {
 
               <button
                 type="submit"
-                className="w-full bg-yellow-500 text-black font-semibold py-3 rounded hover:bg-yellow-400 transition"
+                disabled={loading}
+                className={`w-full bg-yellow-500 text-black font-semibold py-3 rounded transition ${
+                  loading
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-yellow-400"
+                }`}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
 
               {status && (
-                <p className="text-center text-green-600 mt-4">{status}</p>
+                <p className="text-center mt-4 text-green-600">{status}</p>
               )}
             </form>
           </div>
