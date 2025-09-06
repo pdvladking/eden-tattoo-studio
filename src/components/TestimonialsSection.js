@@ -4,39 +4,39 @@ export default function TestimonialsSection() {
   const testimonials = [
     {
       quote:
-        "I walked in with a sketch and walked out with a masterpiece. Eden doesn’t just ink—they translate.",
-      name: "Ravi S.",
-      type: "Blackwork Sleeve",
+        "Wonderful experience with Eden Tattoo. Their service was exceptional—friendly staff, very clean studio, and amazing skills. I love my tattoo, which was designed from a photo I took the morning I reached Thorong La Pass.",
+      name: "Brett Allan",
+      type: "Custom Landscape Piece",
     },
     {
       quote:
-        "The studio vibe, the precision, the aftercare—everything felt intentional. I’ll be back for more.",
-      name: "Anisha T.",
-      type: "Fine-line Floral",
+        "Travelled all the way from London to get Tattooed here! The artists are super friendly, they make sure you’re comfortable by not only making sure you’re happy with your tattoo but also get you tea/coffee. The studio itself is super clean and they stick to the highest standards with all equipment!.",
+      name: "Nafisa Tamrakar.",
+      type: "Dragon tattoo",
     },
     {
       quote:
-        "It’s not just a tattoo. It’s a ritual. Eden made me feel seen, heard, and marked with meaning.",
-      name: "Kiran D.",
-      type: "Script Typography",
+        "After 10 years of debating, I had the pleasure of getting my first tattoo at Eden Tattoo in Thamel. The staff there were extremely helpful - they kept the atmosphere light and fun to ease my anxiety. My tattoo artist collaborated with me on the design and offered professional tips to get the final design - which I absolutely adore! The facility is also extremely clean and sanitary.",
+      name: "Neha.",
+      type: "Bird Tattoo",
     },
     {
       quote:
-        "Eden’s work healed more than skin. It gave me closure I didn’t know I needed.",
-      name: "Sita R.",
-      type: "Scar Cover-Up",
+        "Best tattoo studio in Thamel do visit Highly recommend. Neat and clean. Professional artist. Artist listened my idea and he create beautiful design.",
+      name: "Suraj Rawal.",
+      type: "Custom foot design",
     },
     {
       quote:
-        "From sketch to skin, the process was sacred. Eden’s precision is unmatched.",
-      name: "Arjun V.",
-      type: "Geometric Chestpiece",
+        "5 stars! The owner is very kind, and the girl who did the piercings is super cool. I can 100% recommend Eden Tattoo for tattoos and piercings. I got a big piece and three piercings 💖",
+      name: "Louisa Reimann",
+      type: "Tattoo + Piercing Combo",
     },
     {
       quote:
-        "Every detail felt intentional—from the ink to the energy. Eden is a sanctuary.",
-      name: "Meera L.",
-      type: "Mandala Backpiece",
+        "I did a cover-up and the results were absolutely amazing—fully satisfied! I also got a tiger tattoo on my leg, and it turned out incredible. Highly recommend Eden Tattoo. Super professional, hygienic studio, and chill environment. Do visit Eden Tattoo Nepal!",
+      name: "Nirajan Shrestha",
+      type: "Cover-up + Tiger Tattoo",
     },
     // Add more testimonials here as needed
   ];
@@ -63,8 +63,20 @@ export default function TestimonialsSection() {
         {paginated.map((t, i) => (
           <div
             key={i}
-            className="bg-obsidian/40 p-6 rounded-lg shadow-md border border-veil/30 hover:border-yellow-500 transition"
+            className="bg-obsidian/40 p-6 rounded-lg shadow-md border border-veil/30 hover:border-yellow-500 transition duration-300 ease-in-out transform hover:scale-[1.03]"
+            style={{ willChange: "transform" }}
           >
+            {/* Fixed 5-Star Rating */}
+            <div className="flex justify-center mb-2">
+              {Array(5)
+                .fill()
+                .map((_, i) => (
+                  <span key={i} className="text-yellow-500 text-lg">
+                    ★
+                  </span>
+                ))}
+            </div>
+
             <p className="text-bone/80 italic mb-4">“{t.quote}”</p>
             <div className="text-sm text-yellow-500 font-semibold">
               {t.name} · {t.type}
