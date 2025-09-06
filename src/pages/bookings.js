@@ -27,7 +27,7 @@ export default function BookingPage() {
         {
           name: form.name,
           email: form.email,
-          date: form.date,
+          time: form.date, // ✅ Matches {{time}} in your template
           message: form.message,
         },
         "DDC-tGUE-LJqFcuLL" // ✅ Your actual public key
