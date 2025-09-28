@@ -40,7 +40,16 @@ export default function BookingPage() {
         "DDC-tGUE-LJqFcuLL"
       )
       .then(() => {
-        setStatus("Booking sent!");
+        const bookingDate = new Date(form.date);
+        const options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        const formattedDate = bookingDate.toLocaleDateString("en-US", options);
+
+        setStatus(`Booking sent for ${formattedDate} at ${form.time} NPT.`);
         setForm({
           name: "",
           email: "",
@@ -73,8 +82,6 @@ export default function BookingPage() {
         <meta name="geo.region" content="NP-BA" />
         <meta name="geo.placename" content="Thamel, Kathmandu" />
         <meta name="geo.position" content="27.73384;85.38173" />
-
-        {/* Open Graph */}
         <meta
           property="og:title"
           content="Book a Session | Eden Tattoo Nepal"
@@ -89,15 +96,12 @@ export default function BookingPage() {
           content="https://www.edentattoonepal.com/bookings"
         />
         <meta property="og:type" content="article" />
-
-        {/* Canonical */}
         <link rel="canonical" href="https://www.edentattoonepal.com/bookings" />
       </Head>
 
       <Navbar />
 
       <main>
-        {/* Hero */}
         <section className="pt-24 sm:pt-28 px-6 bg-ink text-bone text-center">
           <h1 className="text-4xl font-playfair font-bold mb-4 text-yellow-500">
             Book a Session
@@ -108,7 +112,6 @@ export default function BookingPage() {
           </p>
         </section>
 
-        {/* Booking Form */}
         <section className="py-14 px-6 bg-bone text-ink">
           <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
             <form className="space-y-6" onSubmit={handleSubmit}>
@@ -221,7 +224,6 @@ export default function BookingPage() {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="py-10 px-6 text-center bg-ink text-bone">
           <h2 className="text-2xl font-bold mb-4 text-yellow-500">
             Need help before booking?
