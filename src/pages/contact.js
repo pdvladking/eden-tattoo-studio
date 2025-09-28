@@ -8,6 +8,7 @@ export default function ContactPage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "", // ✅ added
     message: "",
   });
   const [status, setStatus] = useState("");
@@ -29,10 +30,11 @@ export default function ContactPage() {
     emailjs
       .send(
         "service_dysnhy6",
-        "template_drp4tzi", // ✅ contact template
+        "template_drp4tzi",
         {
           name: form.name,
           email: form.email,
+          phone: form.phone, // ✅ added
           message: form.message,
           time: timestamp,
         },
@@ -40,7 +42,12 @@ export default function ContactPage() {
       )
       .then(() => {
         setStatus("Message sent!");
-        setForm({ name: "", email: "", message: "" });
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
       })
       .catch((err) => {
         console.error("EmailJS error:", err);
@@ -103,6 +110,20 @@ export default function ContactPage() {
                   className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="you@example.com"
                   required
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold mb-1 text-black">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  className="w-full border border-ink/20 rounded px-4 py-2 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  placeholder="Optional phone number"
                 />
               </div>
 
