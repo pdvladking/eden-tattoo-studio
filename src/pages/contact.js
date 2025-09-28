@@ -22,8 +22,22 @@ export default function ContactPage() {
     setLoading(true);
     setStatus("");
 
+    const timestamp = new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Kathmandu",
+    });
+
     emailjs
-      .send("service_dysnhy6", "template_28yr2ql", form, "DDC-tGUE-LJqFcuLL")
+      .send(
+        "service_dysnhy6",
+        "template_drp4tzi", // ✅ contact template
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          time: timestamp,
+        },
+        "DDC-tGUE-LJqFcuLL"
+      )
       .then(() => {
         setStatus("Message sent!");
         setForm({ name: "", email: "", message: "" });
@@ -53,7 +67,7 @@ export default function ContactPage() {
             Contact the Studio
           </h1>
           <p className="text-lg text-bone/80 max-w-2xl mx-auto">
-            Whether you&apos;re curious about styles, pricing, or healing
+            Whether you're curious about styles, pricing, or healing
             rituals—drop us a message. We respond with care, not templates.
           </p>
         </section>
