@@ -25,6 +25,15 @@ export default function BookingPage() {
     setLoading(true);
     setStatus("");
 
+    const bookingDate = new Date(form.date);
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const formattedDate = bookingDate.toLocaleDateString("en-US", options);
+
     emailjs
       .send(
         "service_dysnhy6",
@@ -40,15 +49,6 @@ export default function BookingPage() {
         "DDC-tGUE-LJqFcuLL"
       )
       .then(() => {
-        const bookingDate = new Date(form.date);
-        const options = {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        };
-        const formattedDate = bookingDate.toLocaleDateString("en-US", options);
-
         setStatus(`Booking sent for ${formattedDate} at ${form.time} NPT.`);
         setForm({
           name: "",
