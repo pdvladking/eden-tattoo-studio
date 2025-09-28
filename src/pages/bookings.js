@@ -33,7 +33,7 @@ export default function BookingPage() {
           name: form.name,
           email: form.email,
           phone: form.phone,
-          date: form.date,
+          date: formattedDate,
           time: form.time,
           message: form.message,
         },
