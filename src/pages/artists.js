@@ -66,6 +66,12 @@ export default function ArtistPage() {
                 bio: "Sagar Rana Magar is the founder of Eden Tattoo Nepal, located in Thamel, Kathmandu. Known for his precision in fine-line work and his ability to blend traditional Nepali motifs with modern design, Sagar has built a reputation for intentional artistry and studio discipline. His approach to tattooing is rooted in ritual, hygiene, and emotional resonance—every piece is engineered to reflect the client’s story, not just inked for aesthetics.",
                 img: "/assets/artists/sagar.webp",
               },
+              {
+                name: "Priska Dewan",
+                role: "Piercing Artist",
+                bio: "Priska brings precision and calm to every piercing session.She’s known for her steady hand and a quiet focus that puts clients at ease.",
+                img: "/assets/artists/placeholder.webp",
+              },
             ].map((artist, idx) => (
               <div
                 key={idx}
