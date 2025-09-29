@@ -103,7 +103,6 @@ export default function GalleryPage() {
       <Navbar />
 
       <main>
-        {/* Hero */}
         <section className="pt-24 sm:pt-28 px-6 bg-ink text-bone text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -124,7 +123,6 @@ export default function GalleryPage() {
           </motion.p>
         </section>
 
-        {/* Category Filter */}
         <section className="px-6 py-6 bg-bone text-ink">
           <div className="max-w-6xl mx-auto">
             <select
@@ -142,29 +140,53 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* Cluster Grid */}
         <section className="pb-14 px-6 bg-bone text-ink">
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {filteredImages.map((img, idx) => (
+            {filteredImages.length > 0 && (
               <motion.div
-                key={idx}
+                key={0}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="rounded-lg overflow-hidden border-2 border-transparent
-                  hover:border-yellow-500 hover:shadow-yellow-500/20
-                  transform transition-transform duration-300 ease-out
-                  hover:scale-[1.03] hover:-translate-y-1 group"
+                className="rounded-lg overflow-hidden border-2 border-transparent hover:border-yellow-500 hover:shadow-yellow-500/20 transform transition-transform duration-300 ease-out hover:scale-[1.03] hover:-translate-y-1 group"
+              >
+                <div className="relative">
+                  <Image
+                    src={filteredImages[0].src}
+                    alt={`Tattoo 1`}
+                    width={600}
+                    height={400}
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="w-full h-auto object-cover rounded-lg"
+                  />
+                  <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition">
+                    {filteredImages[0].category} •{" "}
+                    {new Date(filteredImages[0].date).toLocaleDateString()}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {filteredImages.slice(1).map((img, idx) => (
+              <motion.div
+                key={idx + 1}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: (idx + 1) * 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-lg overflow-hidden border-2 border-transparent hover:border-yellow-500 hover:shadow-yellow-500/20 transform transition-transform duration-300 ease-out hover:scale-[1.03] hover:-translate-y-1 group"
               >
                 <div className="relative">
                   <Image
                     src={img.src}
-                    alt={`Tattoo ${idx + 1}`}
+                    alt={`Tattoo ${idx + 2}`}
                     width={600}
                     height={400}
-                    className="w-full h-auto object-cover rounded-lg"
                     loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="w-full h-auto object-cover rounded-lg"
                   />
                   <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition">
                     {img.category} • {new Date(img.date).toLocaleDateString()}
@@ -175,7 +197,6 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="py-10 px-6 text-center bg-ink text-bone">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

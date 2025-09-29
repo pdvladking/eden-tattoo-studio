@@ -57,9 +57,9 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="block">
-          <div className="relative w-[60px] h-[60px]">
-            <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl z-0" />
+        <Link href="/" className="block group">
+          <div className="relative w-[60px] h-[60px] transition duration-300 group-hover:scale-105 group-hover:opacity-90">
+            <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl z-0 animate-pulse-border group-hover:opacity-50 group-hover:scale-110 transition duration-300" />
             <Image
               src="/assets/logos/eden-logo.svg"
               alt="Eden Tattoo Studio logo"
@@ -76,7 +76,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`hover:text-yellow-500 ${
+              className={`transition duration-300 hover:text-yellow-500 ${
                 isActive(link.href) ? "text-yellow-400" : ""
               }`}
             >
@@ -87,7 +87,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className="font-playfair h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold">
+            <button className="font-playfair h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold transition duration-300 hover:bg-yellow-400 hover:scale-105">
               Contact
             </button>
           </Link>
@@ -117,7 +117,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu — Scroll-Proof, No Animation */}
       {isOpen && (
         <div className="fixed top-0 left-0 h-screen w-screen z-[9999] bg-black overflow-y-auto">
           <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-playfair">
@@ -150,7 +149,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block text-lg font-playfair hover:text-yellow-400 ${
+                  className={`block text-lg font-playfair transition duration-300 hover:text-yellow-400 ${
                     isActive(link.href) ? "text-yellow-400" : ""
                   }`}
                 >
@@ -161,7 +160,7 @@ export default function Navbar() {
 
             <div className="pt-8">
               <Link href="/contact" onClick={() => setIsOpen(false)}>
-                <button className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold">
+                <button className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold transition duration-300 hover:bg-yellow-400 hover:scale-105">
                   Contact
                 </button>
               </Link>
