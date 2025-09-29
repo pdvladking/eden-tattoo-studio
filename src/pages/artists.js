@@ -70,7 +70,7 @@ export default function ArtistPage() {
                 name: "Priska Dewan",
                 role: "Piercing Artist",
                 bio: "Priska brings precision and calm to every piercing session.She’s known for her steady hand and a quiet focus that puts clients at ease.",
-                img: "/assets/artists/placeholder.webp",
+                img: "/assets/artists/priska.webp",
               },
             ].map((artist, idx) => (
               <div

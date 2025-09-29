@@ -13,9 +13,16 @@ export default function Navbar() {
   const isActive = (href) => router.pathname.startsWith(href);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -45,14 +52,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`w-full fixed top-0 left-0 z-50 bg-black text-bone shadow-md border-b border-yellow-500/20 transition-all duration-300 ${
+      className={`w-full fixed top-0 left-0 z-50 bg-black text-bone border-b border-yellow-500/20 ${
         scrolled ? "py-2 shadow-lg backdrop-blur-sm" : "py-4"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="block">
-          <div className="relative w-[60px] h-[60px] hover:scale-110 hover:shadow-yellow-500/30 transition-transform duration-300">
-            <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl animate-pulse z-0 hover:ring-2 hover:ring-yellow-500/40 transition" />
+          <div className="relative w-[60px] h-[60px]">
+            <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl z-0" />
             <Image
               src="/assets/logos/eden-logo.svg"
               alt="Eden Tattoo Studio logo"
@@ -69,124 +76,99 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`relative transition duration-300 ease-out transform hover:scale-105 hover:text-yellow-500 ${
+              className={`hover:text-yellow-500 ${
                 isActive(link.href) ? "text-yellow-400" : ""
               }`}
             >
-              <span className="relative z-10">{link.name}</span>
-              <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-500 transition-all duration-300 group-hover:w-full" />
+              {link.name}
             </Link>
           ))}
         </div>
 
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className="font-playfair h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 hover:bg-yellow-600 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 focus-visible:ring-2 focus-visible:ring-yellow-500 rounded-full text-sm font-semibold transition duration-200">
+            <button className="font-playfair h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold">
               Contact
             </button>
           </Link>
         </div>
 
         <div className="md:hidden">
-          {!isOpen && (
-            <button
-              aria-label="Open menu"
-              className="text-bone focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500"
-              onClick={() => setIsOpen(true)}
+          <button
+            aria-label="Open menu"
+            className="text-bone"
+            onClick={() => setIsOpen(true)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          )}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </nav>
 
-      {/* Fullscreen Menu Overlay — Animated */}
-      <div
-        className={`fixed inset-0 z-[999] bg-black transition-all duration-300 ease-in-out ${
-          isOpen
-            ? "opacity-100 scale-100 translate-x-0"
-            : "opacity-0 scale-95 translate-x-full pointer-events-none"
-        }`}
-      >
-        <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-playfair">
-          <div className="flex justify-end mb-8">
-            <button
-              aria-label="Close menu"
-              onClick={() => setIsOpen(false)}
-              className="text-bone focus-visible:ring-2 focus-visible:ring-yellow-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <nav className="space-y-6">
-            {navLinks.map((link, index) => (
-              <Link
-                key={link.name}
-                href={link.href}
+      {/* Mobile Menu — Scroll-Proof, No Animation */}
+      {isOpen && (
+        <div className="fixed top-0 left-0 h-screen w-screen z-[9999] bg-black overflow-y-auto">
+          <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-playfair">
+            <div className="flex justify-end mb-8">
+              <button
+                aria-label="Close menu"
                 onClick={() => setIsOpen(false)}
-                className={`block text-lg tracking-tight font-playfair hover:text-yellow-400 transition duration-300 opacity-0 translate-y-4 ${
-                  isActive(link.href) ? "text-yellow-400" : ""
-                }`}
-                style={{
-                  animation: isOpen
-                    ? `fadeInUp 0.4s ease-out ${index * 0.1}s forwards`
-                    : "none",
-                }}
+                className="text-bone"
               >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="pt-8">
-            <Link href="/contact" onClick={() => setIsOpen(false)}>
-              <button className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 hover:bg-yellow-600 hover:text-bone hover:shadow-md hover:shadow-yellow-500/30 hover:ring-1 hover:ring-yellow-500/40 focus-visible:ring-2 focus-visible:ring-yellow-500 rounded-full text-sm font-semibold transition duration-200">
-                Contact
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               </button>
-            </Link>
+            </div>
+
+            <nav className="space-y-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-lg font-playfair hover:text-yellow-400 ${
+                    isActive(link.href) ? "text-yellow-400" : ""
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="pt-8">
+              <Link href="/contact" onClick={() => setIsOpen(false)}>
+                <button className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold">
+                  Contact
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+      )}
     </header>
   );
 }
