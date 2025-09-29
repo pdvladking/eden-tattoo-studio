@@ -1,9 +1,23 @@
+"use client";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 export default function FooterSection() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <footer id="footer" className="bg-ink text-bone py-20 px-6">
+    <footer
+      id="footer"
+      className={`bg-ink text-bone py-20 px-6 transition-all duration-700 ease-out ${
+        loaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      }`}
+    >
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-10">
         {/* Studio Info */}
         <div>
@@ -60,33 +74,24 @@ export default function FooterSection() {
 
         {/* Social Icons */}
         <div className="flex gap-6 text-xl text-bone/70">
-          <Link
-            href="https://www.facebook.com/profile.php?id=100076221092054"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="hover:text-yellow-500 transition"
-          >
-            <FaFacebookF />
-          </Link>
-          <Link
-            href="https://www.instagram.com/edentattoonepal/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="hover:text-yellow-500 transition"
-          >
-            <FaInstagram />
-          </Link>
-          <Link
-            href="https://www.tiktok.com/@edentattoonepal"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="TikTok"
-            className="hover:text-yellow-500 transition"
-          >
-            <FaTiktok />
-          </Link>
+          {[FaFacebookF, FaInstagram, FaTiktok].map((Icon, i) => (
+            <Link
+              key={i}
+              href={
+                i === 0
+                  ? "https://www.facebook.com/profile.php?id=100076221092054"
+                  : i === 1
+                  ? "https://www.instagram.com/edentattoonepal/"
+                  : "https://www.tiktok.com/@edentattoonepal"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={["Facebook", "Instagram", "TikTok"][i]}
+              className="hover:text-yellow-500 transition transform hover:scale-110 hover:-translate-y-1 hover:shadow-yellow-500/30"
+            >
+              <Icon />
+            </Link>
+          ))}
         </div>
 
         {/* Divider */}

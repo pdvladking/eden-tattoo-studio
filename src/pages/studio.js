@@ -1,3 +1,5 @@
+"use client";
+
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -20,8 +22,6 @@ export default function StudioPage() {
         <meta name="geo.region" content="NP-BA" />
         <meta name="geo.placename" content="Thamel, Kathmandu" />
         <meta name="geo.position" content="27.73384;85.38173" />
-
-        {/* Open Graph */}
         <meta
           property="og:title"
           content="Studio Hygiene | Eden Tattoo Nepal"
@@ -36,8 +36,6 @@ export default function StudioPage() {
           content="https://www.edentattoonepal.com/studio"
         />
         <meta property="og:type" content="article" />
-
-        {/* Canonical */}
         <link rel="canonical" href="https://www.edentattoonepal.com/studio" />
       </Head>
 
@@ -140,7 +138,10 @@ export default function StudioPage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bg-ink text-bone p-6 rounded-lg shadow-md border-2 border-transparent hover:border-yellow-500 transform transition duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl hover:-translate-y-1"
+                className="bg-ink text-bone p-6 rounded-lg shadow-md border-2 border-transparent
+                  hover:border-yellow-500 hover:shadow-yellow-500/20
+                  transform transition-transform duration-300 ease-out
+                  hover:scale-[1.03] hover:-translate-y-1"
               >
                 <h3 className="text-xl font-semibold mb-2 text-yellow-500">
                   {item.title}
@@ -158,7 +159,7 @@ export default function StudioPage() {
           </h2>
           <Link
             href="/bookings"
-            className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
+            className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-transform duration-300 hover:scale-105 shadow hover:shadow-yellow-500/30"
           >
             Book Now
           </Link>

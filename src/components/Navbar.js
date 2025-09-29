@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
   const isActive = (href) => router.pathname.startsWith(href);
@@ -26,6 +27,14 @@ export default function Navbar() {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navLinks = [
     { name: "Studio", href: "/studio" },
     { name: "Artists", href: "/artists" },
@@ -35,10 +44,14 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-black text-bone shadow-md border-b border-yellow-500/20 transition-all duration-300">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header
+      className={`w-full fixed top-0 left-0 z-50 bg-black text-bone shadow-md border-b border-yellow-500/20 transition-all duration-300 ${
+        scrolled ? "py-2 shadow-lg backdrop-blur-sm" : "py-4"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="block">
-          <div className="relative w-[60px] h-[60px] hover:scale-105 transition-transform duration-200">
+          <div className="relative w-[60px] h-[60px] hover:scale-110 hover:shadow-yellow-500/30 transition-transform duration-300">
             <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-xl animate-pulse z-0 hover:ring-2 hover:ring-yellow-500/40 transition" />
             <Image
               src="/assets/logos/eden-logo.svg"
@@ -56,11 +69,12 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`transition hover:text-yellow-500 ${
+              className={`relative transition duration-300 ease-out transform hover:scale-105 hover:text-yellow-500 ${
                 isActive(link.href) ? "text-yellow-400" : ""
               }`}
             >
-              {link.name}
+              <span className="relative z-10">{link.name}</span>
+              <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-yellow-500 transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>
@@ -99,7 +113,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Fullscreen Menu Overlay — Solid Background */}
+      {/* Fullscreen Menu Overlay — Animated */}
       <div
         className={`fixed inset-0 z-[999] bg-black transition-all duration-300 ease-in-out ${
           isOpen
@@ -132,14 +146,19 @@ export default function Navbar() {
           </div>
 
           <nav className="space-y-6">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block text-lg tracking-tight font-playfair hover:text-yellow-400 transition ${
+                className={`block text-lg tracking-tight font-playfair hover:text-yellow-400 transition duration-300 opacity-0 translate-y-4 ${
                   isActive(link.href) ? "text-yellow-400" : ""
                 }`}
+                style={{
+                  animation: isOpen
+                    ? `fadeInUp 0.4s ease-out ${index * 0.1}s forwards`
+                    : "none",
+                }}
               >
                 {link.name}
               </Link>
@@ -155,6 +174,19 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </header>
   );
 }
