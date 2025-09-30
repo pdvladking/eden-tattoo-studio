@@ -118,7 +118,7 @@ export default function Navbar() {
       </nav>
 
       {isOpen && (
-        <div className="fixed top-0 left-0 h-screen w-screen z-[9999] bg-black overflow-y-auto">
+        <div className="fixed top-0 left-0 h-[100dvh] w-screen z-[9999] bg-black overflow-y-auto">
           <div className="max-w-md mx-auto h-full flex flex-col justify-between px-6 py-8 text-bone text-base font-playfair">
             <div className="flex justify-end mb-8">
               <button
@@ -157,7 +157,7 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="pt-8">
+            <div className="pt-8 pb-10">
               <button
                 onClick={() => {
                   setIsOpen(false);
