@@ -159,8 +159,11 @@ export default function Navbar() {
             </nav>
 
             <div className="pt-8">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
-                <button className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold transition duration-300 hover:bg-yellow-400 hover:scale-105">
+              <Link href="/contact">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold transition duration-300 hover:bg-yellow-400 hover:scale-105"
+                >
                   Contact
                 </button>
               </Link>
