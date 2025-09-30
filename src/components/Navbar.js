@@ -148,25 +148,25 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
                   className={`block text-lg font-playfair transition duration-300 hover:text-yellow-400 ${
                     isActive(link.href) ? "text-yellow-400" : ""
                   }`}
                 >
-                  {link.name}
+                  <span onClick={() => setIsOpen(false)}>{link.name}</span>
                 </Link>
               ))}
             </nav>
 
             <div className="pt-8">
-              <Link href="/contact">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold transition duration-300 hover:bg-yellow-400 hover:scale-105"
-                >
-                  Contact
-                </button>
-              </Link>
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  router.push("/contact");
+                }}
+                className="font-playfair w-full h-[45px] px-5 bg-yellow-500 text-black border border-ink/20 rounded-full text-sm font-semibold transition duration-300 hover:bg-yellow-400 hover:scale-105"
+              >
+                Contact
+              </button>
             </div>
           </div>
         </div>
