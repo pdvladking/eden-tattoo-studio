@@ -94,6 +94,14 @@ export default function FooterSection() {
           ))}
         </div>
 
+        {/* Studio Policy */}
+        <div className="max-w-xl text-xs text-bone/60 space-y-2 pt-6">
+          <p>Clients must be 18 or older to get tattooed.</p>
+          <p>Diabetic clients require medical clearance before booking.</p>
+          <p>Drug and alcohol use is strictly prohibited on studio premises.</p>
+          <p>Respectful behavior is mandatory at all times.</p>
+        </div>
+
         {/* Divider */}
         <div className="w-full h-[1px] bg-gradient-to-r from-yellow-500/20 via-bone/10 to-yellow-500/20" />
 
