@@ -9,73 +9,128 @@ import { useState, useMemo } from "react";
 
 const allImages = [
   {
-    src: "/assets/gallery/ink-1.webp",
+    src: "/assets/gallery/oriental-1.webp",
     category: "oriental",
     date: "2025-09-28",
   },
   {
-    src: "/assets/gallery/ink-2.webp",
-    category: "geometric",
+    src: "/assets/gallery/oriental-2.webp",
+    category: "oriental",
     date: "2025-09-27",
   },
   {
-    src: "/assets/gallery/ink-3.webp",
-    category: "polynesian",
+    src: "/assets/gallery/oriental-3.webp",
+    category: "oriental",
     date: "2025-09-26",
   },
   {
-    src: "/assets/gallery/ink-4.webp",
-    category: "fine-line",
+    src: "/assets/gallery/oriental-4.webp",
+    category: "oriental",
     date: "2025-09-25",
   },
   {
-    src: "/assets/gallery/ink-5.webp",
-    category: "realism",
+    src: "/assets/gallery/oriental-5.webp",
+    category: "oriental",
     date: "2025-09-24",
   },
   {
-    src: "/assets/gallery/ink-6.webp",
+    src: "/assets/gallery/oriental-6.webp",
     category: "oriental",
     date: "2025-09-23",
   },
   {
-    src: "/assets/gallery/ink-7.webp",
-    category: "geometric",
+    src: "/assets/gallery/oriental-7.webp",
+    category: "oriental",
     date: "2025-09-22",
   },
   {
-    src: "/assets/gallery/ink-8.webp",
-    category: "polynesian",
+    src: "/assets/gallery/fineline-1.webp",
+    category: "fine-line",
     date: "2025-09-21",
   },
   {
-    src: "/assets/gallery/ink-9.webp",
+    src: "/assets/gallery/fineline-2.webp",
     category: "fine-line",
     date: "2025-09-20",
   },
   {
-    src: "/assets/gallery/ink-10.webp",
-    category: "realism",
+    src: "/assets/gallery/fineline-3.webp",
+    category: "fine-line",
     date: "2025-09-19",
   },
   {
-    src: "/assets/gallery/ink-11.webp",
-    category: "oriental",
+    src: "/assets/gallery/fineline-4.webp",
+    category: "fine-line",
     date: "2025-09-18",
   },
   {
-    src: "/assets/gallery/ink-12.webp",
-    category: "geometric",
+    src: "/assets/gallery/fineline-5.webp",
+    category: "fine-line",
     date: "2025-09-17",
   },
   {
-    src: "/assets/gallery/ink-13.webp",
-    category: "polynesian",
+    src: "/assets/gallery/fineline-6.webp",
+    category: "fine-line",
     date: "2025-09-16",
   },
   {
-    src: "/assets/gallery/ink-14.webp",
-    category: "fine-line",
+    src: "/assets/gallery/geo-1.webp",
+    category: "geometric",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/geo-2.webp",
+    category: "geometric",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/geo-3.webp",
+    category: "geometric",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/geo-4.webp",
+    category: "geometric",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/geo-5.webp",
+    category: "geometric",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/geo-6.webp",
+    category: "geometric",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/realism-1.webp",
+    category: "realism",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/realism-2.webp",
+    category: "realism",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/realism-3.webp",
+    category: "realism",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/realism-4.webp",
+    category: "realism",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/realism-5.webp",
+    category: "realism",
+    date: "2025-09-15",
+  },
+  {
+    src: "/assets/gallery/realism-6.webp",
+    category: "realism",
     date: "2025-09-15",
   },
 ];
@@ -133,7 +188,6 @@ export default function GalleryPage() {
               <option value="all">All Categories</option>
               <option value="oriental">Oriental Tattoos</option>
               <option value="geometric">Geometric Tattoos</option>
-              <option value="polynesian">Polynesian Tattoos</option>
               <option value="fine-line">Fine Line Tattoos</option>
               <option value="realism">Realism Tattoos</option>
             </select>

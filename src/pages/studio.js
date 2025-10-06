@@ -94,7 +94,7 @@ export default function StudioPage() {
             </div>
             <div>
               <Image
-                src="/assets/tattoos/shop-img1.webp"
+                src="/assets/logos/workstation.webp"
                 alt="Inside Eden Tattoo Studio"
                 width={600}
                 height={400}
