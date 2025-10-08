@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import FooterSection from "../components/FooterSection";
 import Head from "next/head";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -34,7 +35,7 @@ export default function App({ Component, pageProps }) {
         <meta property="og:type" content="website" />
 
         {/* Canonical */}
-        <link rel="canonical" href="https://www.edentattoonepal.com" />
+        <link rel="canonical" href="https://www.edentattoonepal.com.np" />
 
         {/* LocalBusiness Schema */}
         <script type="application/ld+json">
@@ -42,9 +43,10 @@ export default function App({ Component, pageProps }) {
             "@context": "https://schema.org",
             "@type": "TattooParlor",
             name: "Eden Tattoo Nepal",
-            image: "https://www.edentattoonepal.com/assets/logos/eden-logo.svg",
-            url: "https://www.edentattoonepal.com",
-            telephone: "+977-9800000000",
+            image:
+              "https://www.edentattoonepal.com.np/assets/logos/eden-logo.svg",
+            url: "https://www.edentattoonepal.com.np",
+            telephone: "+977-981-6245996",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Chaksibari Marg, Thamel",
@@ -64,13 +66,14 @@ export default function App({ Component, pageProps }) {
             },
             sameAs: [
               "https://www.instagram.com/edentattoonepal",
-              "https://www.facebook.com/edentattoonepal",
+              "https://www.facebook.com/profile.php?id=100076221092054",
             ],
           })}
         </script>
       </Head>
 
       <Component {...pageProps} />
+      <WhatsAppButton />
       <FooterSection />
       <SpeedInsights />
     </>
