@@ -11,6 +11,11 @@ export default function App({ Component, pageProps }) {
         <title>
           Eden Tattoo Nepal | Custom Tattoos & Piercings in Kathmandu
         </title>
+        <link
+          rel="icon"
+          href="/assets/logos/eden-logo.svg"
+          type="image/svg+xml"
+        />
         <meta
           name="description"
           content="Professional tattoo and piercing studio in Thamel, Kathmandu. Hygienic, artistic, and unforgettable ink."
