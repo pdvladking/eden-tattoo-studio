@@ -11,7 +11,9 @@ export default function App({ Component, pageProps }) {
         <title>
           Eden Tattoo Nepal | Custom Tattoos & Piercings in Kathmandu
         </title>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+
+        {/* ✅ Favicon Logic */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link
           rel="icon"
           type="image/png"
@@ -26,6 +28,8 @@ export default function App({ Component, pageProps }) {
         />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+
+        {/* ✅ SEO Meta */}
         <meta
           name="description"
           content="Professional tattoo and piercing studio in Thamel, Kathmandu. Hygienic, artistic, and unforgettable ink."
@@ -39,20 +43,20 @@ export default function App({ Component, pageProps }) {
         <meta name="geo.placename" content="Thamel, Kathmandu" />
         <meta name="geo.position" content="27.73384;85.38173" />
 
-        {/* Open Graph */}
+        {/* ✅ Open Graph */}
         <meta property="og:title" content="Eden Tattoo Nepal" />
         <meta
           property="og:description"
           content="Custom tattoos and piercings in Kathmandu. Hygienic studio, professional artists, unforgettable ink."
         />
         <meta property="og:image" content="/assets/logos/eden-logo.svg" />
-        <meta property="og:url" content="https://www.edentattoonepal.com" />
+        <meta property="og:url" content="https://www.edentattoonepal.com.np" />
         <meta property="og:type" content="website" />
 
-        {/* Canonical */}
+        {/* ✅ Canonical */}
         <link rel="canonical" href="https://www.edentattoonepal.com.np" />
 
-        {/* LocalBusiness Schema */}
+        {/* ✅ LocalBusiness Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -70,7 +74,15 @@ export default function App({ Component, pageProps }) {
               postalCode: "44600",
               addressCountry: "NP",
             },
-            openingHours: "Mo-Su 10:00-19:00",
+            openingHours: [
+              "Monday 10:00-23:00",
+              "Tuesday 10:00-23:00",
+              "Wednesday 10:00-23:00",
+              "Thursday 10:00-23:00",
+              "Friday 10:00-23:00",
+              "Saturday 10:00-23:00",
+              "Sunday 10:00-23:00",
+            ],
             priceRange: "$$",
             description:
               "Eden Tattoo Nepal is a professional tattoo and piercing studio located in Thamel, Kathmandu. We specialize in custom designs, fine-line work, cover-ups, and hygienic piercing services.",
