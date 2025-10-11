@@ -46,6 +46,13 @@ export default function TestimonialsSection() {
       type: "Cover-up + Tiger Tattoo · Tattoo Nepal",
       avatar: "/assets/avatar/nirajan-avatar.webp",
     },
+    {
+      quote:
+        "Got my tattoo done at this place and I’m really happy with the result! It turned out exactly how I wanted—clean, detailed, and just perfect. The team was friendly, and made the whole experience super comfortable. Great service and great vibes. Highly recommend!.",
+      name: "Sanju Khadka",
+      type: "fine-line + Ganesh Tattoo · Tattoo Nepal",
+      avatar: "/assets/avatar/sanju-avatar.webp",
+    },
   ];
 
   const testimonialsPerPage = 3;

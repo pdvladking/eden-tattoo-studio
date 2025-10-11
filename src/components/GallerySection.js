@@ -41,6 +41,9 @@ export default function GallerySection() {
     "/assets/tattoos/gallery-preview-4.webp",
     "/assets/tattoos/gallery-preview-5.webp",
     "/assets/tattoos/gallery-preview-6.webp",
+    "/assets/piercings/piercing-3.webp",
+    "/assets/piercings/piercing-4.webp",
+    "/assets/piercings/piercing-6.webp",
   ];
 
   return (

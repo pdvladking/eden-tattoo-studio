@@ -94,6 +94,14 @@ export default function FooterSection() {
           ))}
         </div>
 
+        {/* Studio Hours */}
+        <div className="text-sm text-bone/70">
+          <h4 className="font-semibold text-white mb-2">Studio Hours</h4>
+          <ul className="space-y-1">
+            <li>Sun–Sat: 10:00 AM – 11:00 PM</li>
+          </ul>
+        </div>
+
         {/* Studio Policy */}
         <div className="max-w-xl text-xs text-bone/60 space-y-2 pt-6">
           <p>Clients must be 18 or older to get tattooed.</p>

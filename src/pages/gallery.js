@@ -133,6 +133,31 @@ const allImages = [
     category: "realism",
     date: "2025-09-15",
   },
+  {
+    src: "/assets/piercings/piercing-1.webp",
+    category: "piercing",
+    date: "2025-10-11",
+  },
+  {
+    src: "/assets/piercings/piercing-2.webp",
+    category: "piercing",
+    date: "2025-10-11",
+  },
+  {
+    src: "/assets/piercings/piercing-5.webp",
+    category: "piercing",
+    date: "2025-10-11",
+  },
+  {
+    src: "/assets/piercings/piercing-7.webp",
+    category: "piercing",
+    date: "2025-10-11",
+  },
+  {
+    src: "/assets/piercings/piercing-8.webp",
+    category: "piercing",
+    date: "2025-10-11",
+  },
 ];
 
 export default function GalleryPage() {
@@ -190,6 +215,7 @@ export default function GalleryPage() {
               <option value="geometric">Geometric Tattoos</option>
               <option value="fine-line">Fine Line Tattoos</option>
               <option value="realism">Realism Tattoos</option>
+              <option value="piercing">Piercings</option>
             </select>
           </div>
         </section>
