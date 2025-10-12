@@ -5,14 +5,14 @@ import Link from "next/link";
 
 export default function TestimonialsPage() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-black text-white">
       <Head>
         <title>Stories Etched in Skin | Eden Tattoo Nepal</title>
       </Head>
 
       <Navbar />
 
-      <main className="bg-black text-white min-h-screen pt-32 pb-16 flex flex-col items-center">
+      <main className="flex-grow pt-32 pb-16 flex flex-col items-center">
         {/* Heading */}
         <h1 className="text-3xl sm:text-4xl font-bold mb-12 font-playfair text-center px-4">
           Stories <span className="text-yellow-500">Etched</span> in Skin
@@ -29,6 +29,7 @@ export default function TestimonialsPage() {
             className="w-full h-auto object-contain"
           />
         </div>
+
         {/* Testimonial impact + CTA */}
         <div className="mt-12 text-center px-4">
           <p className="text-xl sm:text-2xl font-semibold mb-4">
@@ -43,6 +44,6 @@ export default function TestimonialsPage() {
           </Link>
         </div>
       </main>
-    </>
+    </div>
   );
 }
