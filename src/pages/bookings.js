@@ -93,10 +93,13 @@ export default function BookingPage() {
         <meta property="og:image" content="/assets/logos/eden-logo.svg" />
         <meta
           property="og:url"
-          content="https://www.edentattoonepal.com/bookings"
+          content="https://www.edentattoonepal.com.np/bookings"
         />
         <meta property="og:type" content="article" />
-        <link rel="canonical" href="https://www.edentattoonepal.com/bookings" />
+        <link
+          rel="canonical"
+          href="https://www.edentattoonepal.com.np/bookings"
+        />
       </Head>
 
       <Navbar />

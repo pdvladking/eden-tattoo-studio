@@ -29,14 +29,14 @@ export default function AftercarePage() {
         <meta property="og:image" content="/assets/logos/eden-logo.svg" />
         <meta
           property="og:url"
-          content="https://www.edentattoonepal.com/aftercare"
+          content="https://www.edentattoonepal.com.np/aftercare"
         />
         <meta property="og:type" content="article" />
 
         {/* Canonical */}
         <link
           rel="canonical"
-          href="https://www.edentattoonepal.com/aftercare"
+          href="https://www.edentattoonepal.com.np/aftercare"
         />
       </Head>
 

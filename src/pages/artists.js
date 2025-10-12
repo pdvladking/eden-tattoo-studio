@@ -33,12 +33,15 @@ export default function ArtistPage() {
         <meta property="og:image" content="/assets/artists/sagar.webp" />
         <meta
           property="og:url"
-          content="https://www.edentattoonepal.com/artists"
+          content="https://www.edentattoonepal.com.np/artists"
         />
         <meta property="og:type" content="article" />
 
         {/* Canonical */}
-        <link rel="canonical" href="https://www.edentattoonepal.com/artists" />
+        <link
+          rel="canonical"
+          href="https://www.edentattoonepal.com.np/artists"
+        />
       </Head>
 
       <Navbar />

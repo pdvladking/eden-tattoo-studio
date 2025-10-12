@@ -33,10 +33,13 @@ export default function StudioPage() {
         <meta property="og:image" content="/assets/logos/eden-logo.svg" />
         <meta
           property="og:url"
-          content="https://www.edentattoonepal.com/studio"
+          content="https://www.edentattoonepal.com.np/studio"
         />
         <meta property="og:type" content="article" />
-        <link rel="canonical" href="https://www.edentattoonepal.com/studio" />
+        <link
+          rel="canonical"
+          href="https://www.edentattoonepal.com.np/studio"
+        />
       </Head>
 
       <Navbar />

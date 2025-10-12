@@ -35,3 +35,45 @@ body {
 .animate-pulse-border {
   animation: pulse-border 2.5s infinite;
 }
+@keyframes pulse-slow {
+  0%,
+  100% {
+    stroke-opacity: 0.6;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 0px white);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px white);
+  }
+  100% {
+    filter: drop-shadow(0 0 0px white);
+  }
+}
+.hover\:animate-glow:hover {
+  animation: glow 0.8s ease-in-out;
+}
+@keyframes breathe-aggressive {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+.animate-breathe-aggressive {
+  animation: breathe-aggressive 3s ease-in-out infinite;
+}

@@ -54,6 +54,12 @@ export default function FooterSection() {
           <Link href="/studio" className="hover:text-yellow-500 transition">
             About
           </Link>
+          <Link
+            href="/testimonials"
+            className="hover:text-yellow-500 transition"
+          >
+            Testimonials
+          </Link>
         </nav>
 
         {/* Contact Info */}

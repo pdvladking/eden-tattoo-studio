@@ -48,6 +48,7 @@ export default function Navbar() {
     { name: "Gallery", href: "/gallery" },
     { name: "Aftercare", href: "/aftercare" },
     { name: "Bookings", href: "/bookings" },
+    { name: "Testimonials", href: "/testimonials" },
   ];
 
   return (
