@@ -49,9 +49,23 @@ export default function App({ Component, pageProps }) {
           property="og:description"
           content="Custom tattoos and piercings in Kathmandu. Hygienic studio, professional artists, unforgettable ink."
         />
-        <meta property="og:image" content="/assets/logos/eden-logo.svg" />
+        <meta
+          property="og:image"
+          content="https://www.edentattoonepal.com.np/assets/logos/eden-logo.svg"
+        />
+
         <meta property="og:url" content="https://www.edentattoonepal.com.np" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Eden Tattoo Nepal" />
+        <meta
+          name="twitter:description"
+          content="Custom tattoos and piercings in Kathmandu. Hygienic studio, professional artists, unforgettable ink."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.edentattoonepal.com.np/assets/logos/eden-logo.svg"
+        />
 
         {/* ✅ Canonical */}
         <link rel="canonical" href="https://www.edentattoonepal.com.np" />
