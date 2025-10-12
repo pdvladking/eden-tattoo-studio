@@ -31,14 +31,14 @@ export default function TestimonialsPage() {
         </div>
 
         {/* Testimonial impact + CTA */}
-        <div className="mt-12 text-center px-4">
+        <div className="mt-24 sm:mt-12 text-center px-4 pb-4 sm:pb-16">
           <p className="text-xl sm:text-2xl font-semibold mb-4">
             Trusted by <span className="text-yellow-500">1000+</span> happy
             clients across Nepal and beyond.
           </p>
           <Link
             href="/bookings"
-            className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-transform duration-300 hover:scale-105 shadow hover:shadow-yellow-500/30"
+            className="mt-8 inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-transform duration-300 hover:scale-105 shadow hover:shadow-yellow-500/30"
           >
             Book Now
           </Link>
