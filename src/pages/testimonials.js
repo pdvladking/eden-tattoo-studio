@@ -21,7 +21,7 @@ export default function TestimonialsPage() {
         {/* Full-width responsive image */}
         <div className="w-screen sm:max-w-[1440px] animate-breathe-aggressive">
           <Image
-            src="/assets/testimonials-avatar/testimoni.svg"
+            src="/assets/testimonials-avatar/testimonials.png"
             alt="Eden Studio testimonial web"
             width={1440}
             height={1024}
