@@ -123,6 +123,17 @@ export default function FooterSection() {
         <p className="text-xs text-bone/50 tracking-wide">
           © {new Date().getFullYear()} Eden Tattoo Nepal. All rights reserved.
         </p>
+        <p className="text-xs text-bone/50 tracking-wide">
+          Built and designed by{" "}
+          <a
+            href="https://rajathapa.com.np"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-yellow-500 transition"
+          >
+            Rajthapa.com.np
+          </a>
+        </p>
       </div>
     </footer>
   );
